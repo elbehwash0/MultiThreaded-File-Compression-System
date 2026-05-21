@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UhygCAye3Qk/jdQ91DWF3Gn6ch2wZi1AxXA7Ks8okVIBezOuN6TV+NI5AJwz5qr/zxKsUcyRTCjOfoWdQSjhGA==",
+  "dgSpecHash": "Xr8An7700dBbKErHQwy2QfvJvaosCkAnGB2lZlR1zd+y9sWeN9k/T9cwX4NkRjmDInk8mML6SVHcIUJIGx4Scg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Abdallah Mohamed\\Desktop\\CompressionProject\\Client\\Client.csproj",
+  "projectFilePath": "C:\\Users\\Abdallah Mohamed\\Desktop\\New folder\\MultiThreaded-File-Compression-System\\Client\\Client.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

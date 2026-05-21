@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Abdallah Mohamed\\Desktop\\CompressionProject\\Client\\Client.csproj": {}
+    "C:\\Users\\Abdallah Mohamed\\Desktop\\New folder\\MultiThreaded-File-Compression-System\\Client\\Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Abdallah Mohamed\\Desktop\\CompressionProject\\Client\\Client.csproj": {
+    "C:\\Users\\Abdallah Mohamed\\Desktop\\New folder\\MultiThreaded-File-Compression-System\\Client\\Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Abdallah Mohamed\\Desktop\\CompressionProject\\Client\\Client.csproj",
+        "projectUniqueName": "C:\\Users\\Abdallah Mohamed\\Desktop\\New folder\\MultiThreaded-File-Compression-System\\Client\\Client.csproj",
         "projectName": "Client",
-        "projectPath": "C:\\Users\\Abdallah Mohamed\\Desktop\\CompressionProject\\Client\\Client.csproj",
+        "projectPath": "C:\\Users\\Abdallah Mohamed\\Desktop\\New folder\\MultiThreaded-File-Compression-System\\Client\\Client.csproj",
         "packagesPath": "C:\\Users\\Abdallah Mohamed\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Abdallah Mohamed\\Desktop\\CompressionProject\\Client\\obj\\",
+        "outputPath": "C:\\Users\\Abdallah Mohamed\\Desktop\\New folder\\MultiThreaded-File-Compression-System\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Abdallah Mohamed\\AppData\\Roaming\\NuGet\\NuGet.Config",

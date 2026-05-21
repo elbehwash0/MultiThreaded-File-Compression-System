@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Abdallah Mohamed\\Desktop\\CompressionProject\\Server\\Server.csproj",
+      "projectUniqueName": "C:\\Users\\Abdallah Mohamed\\Desktop\\New folder\\MultiThreaded-File-Compression-System\\Server\\Server.csproj",
       "projectName": "Server",
-      "projectPath": "C:\\Users\\Abdallah Mohamed\\Desktop\\CompressionProject\\Server\\Server.csproj",
+      "projectPath": "C:\\Users\\Abdallah Mohamed\\Desktop\\New folder\\MultiThreaded-File-Compression-System\\Server\\Server.csproj",
       "packagesPath": "C:\\Users\\Abdallah Mohamed\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Abdallah Mohamed\\Desktop\\CompressionProject\\Server\\obj\\",
+      "outputPath": "C:\\Users\\Abdallah Mohamed\\Desktop\\New folder\\MultiThreaded-File-Compression-System\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Abdallah Mohamed\\AppData\\Roaming\\NuGet\\NuGet.Config",
