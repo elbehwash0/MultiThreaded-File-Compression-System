@@ -1,0 +1,157 @@
+// Async TCP Client Example (WinForms)
+private async void button1_Click(object sender, EventArgs e)
+{
+    TcpClient client = new TcpClient();
+    await client.ConnectAsync("127.0.0.1", 5000);
+
+    NetworkStream stream = client.GetStream();
+
+    StreamWriter writer = new StreamWriter(stream)
+    {
+        AutoFlush = true
+    };
+
+    StreamReader reader = new StreamReader(stream);
+
+    /////////////////////////////////////////////////////////////
+    // Task 1
+    string msg = "20210015|Ahmed Mohamed|CS|1";
+
+    await writer.WriteLineAsync(msg);
+
+    string response = await reader.ReadLineAsync();
+    textBox2.Text = response;
+
+    /////////////////////////////////////////////////////////////
+    // Task 2 - Receive Image
+    await writer.WriteLineAsync("#ready2");
+
+    byte[] data = new byte[4];
+    await stream.ReadAsync(data, 0, data.Length);
+
+    int size = BitConverter.ToInt32(data, 0);
+
+    byte[] image = new byte[size];
+
+    int i = 0;
+
+    while (i < size)
+    {
+        int r = await stream.ReadAsync(image, i, size - i);
+        i += r;
+    }
+
+    await File.WriteAllBytesAsync("img.jpg", image);
+
+    FileInfo f = new FileInfo("img.jpg");
+
+    await writer.WriteLineAsync(f.FullName);
+
+    response = await reader.ReadLineAsync();
+    textBox2.Text = response;
+
+    /////////////////////////////////////////////////////////////
+    // Task 3 - Receive Text File
+    await writer.WriteLineAsync("#ready3");
+
+    string job3 = await reader.ReadLineAsync();
+
+    string[] msg3 = job3.Split('|');
+
+    string file_name = msg3[0];
+    int file_length = int.Parse(msg3[1]);
+    string file_content = msg3[2];
+
+    await File.WriteAllTextAsync(file_name, file_content);
+
+    response = await reader.ReadLineAsync();
+    textBox2.Text = response;
+
+    /////////////////////////////////////////////////////////////
+    // Task 4 - ZIP File
+    await writer.WriteLineAsync("#ready4");
+
+    using (FileStream fzip = new FileStream("hello.zip", FileMode.Create))
+    using (ZipArchive zip = new ZipArchive(fzip, ZipArchiveMode.Create))
+    {
+        zip.CreateEntryFromFile(file_name, file_name);
+    }
+
+    f = new FileInfo("hello.zip");
+
+    await writer.WriteLineAsync($"ZIP|{f.FullName}");
+
+    response = await reader.ReadLineAsync();
+    textBox2.Text = response;
+
+    response = await reader.ReadLineAsync();
+    textBox2.Text = response;
+
+    /////////////////////////////////////////////////////////////
+    // Task 5 - BinaryReader
+    await writer.WriteLineAsync("#ready5");
+
+    BinaryReader br = new BinaryReader(stream);
+
+    string Fn = br.ReadString();
+    long sz = br.ReadInt64();
+    string et = br.ReadString();
+
+    richTextBox1.AppendText(
+        $"File Name : {Fn}\n" +
+        $"Size : {sz}\n" +
+        $"Extension : {et}\n"
+    );
+
+    /////////////////////////////////////////////////////////////
+    // Task 6 - XML Serialization
+    await writer.WriteLineAsync("#ready6");
+
+    data = new byte[4];
+    await stream.ReadAsync(data, 0, data.Length);
+
+    size = BitConverter.ToInt32(data, 0);
+
+    data = new byte[size];
+
+    i = 0;
+
+    while (i < size)
+    {
+        int r = await stream.ReadAsync(data, i, size - i);
+        i += r;
+    }
+
+    XmlSerializer xml = new XmlSerializer(typeof(FileMetaData));
+
+    MemoryStream ms = new MemoryStream(data);
+
+    FileMetaData obj = (FileMetaData)xml.Deserialize(ms);
+
+    string result = $"{obj.FileName} {obj.Size} {obj.Extension}";
+
+    richTextBox1.AppendText(result);
+
+    /////////////////////////////////////////////////////////////
+    // Task 7 - Send File
+    await writer.WriteLineAsync("#ready7");
+
+    FileInfo f7 = new FileInfo("file.txt");
+
+    string name7 = f7.Name;
+    long size7 = f7.Length;
+
+    data = await File.ReadAllBytesAsync("file.txt");
+
+    byte[] nameln = BitConverter.GetBytes(name7.Length);
+    byte[] name77 = Encoding.UTF8.GetBytes(name7);
+    byte[] size77 = BitConverter.GetBytes(size7);
+
+    await stream.WriteAsync(nameln, 0, nameln.Length);
+    await stream.WriteAsync(name77, 0, name77.Length);
+    await stream.WriteAsync(size77, 0, size77.Length);
+    await stream.WriteAsync(data, 0, data.Length);
+
+    /////////////////////////////////////////////////////////////
+    client.Close();
+}
