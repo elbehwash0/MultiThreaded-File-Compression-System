@@ -20,7 +20,6 @@ The system allows multiple clients to upload files simultaneously to a server, w
 - [Error Handling](#error-handling)
 - [Example Workflow](#example-workflow)
 - [Future Improvements](#future-improvements)
-- [Author](#author)
 - [License](#license)
 
 ---
@@ -213,12 +212,6 @@ Client receives and saves ZIP file
 - File encryption support
 - Multiple file compression
 - Cross-device networking support
-
----
-
-# Author
-
-Developed as a complementary networking project using C#, TCP sockets, multithreading, and WinForms.
 
 ---
 
