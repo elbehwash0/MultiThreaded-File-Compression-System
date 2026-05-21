@@ -5,6 +5,26 @@ The system allows multiple clients to upload files simultaneously to a server, w
 
 ---
 
+# Table of Contents
+
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [System Architecture](#system-architecture)
+- [File Transfer Protocol](#file-transfer-protocol)
+- [User Interface](#user-interface)
+- [Project Structure](#project-structure)
+- [How to Run](#how-to-run)
+- [Multi-threading Implementation](#multi-threading-implementation)
+- [Compression Mechanism](#compression-mechanism)
+- [Networking Concepts Used](#networking-concepts-used)
+- [Error Handling](#error-handling)
+- [Example Workflow](#example-workflow)
+- [Future Improvements](#future-improvements)
+- [Author](#author)
+- [License](#license)
+
+---
+
 # Features
 
 - Multi-threaded TCP server
